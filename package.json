@@ -1,0 +1,10 @@
+{
+  "name": "riasfp",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "Przemyslaw Sowinski",
+  "license": "MIT",
+  "dependencies": {
+    "immutable": "^4.0.0-rc.12"
+  }
+}
