@@ -4,7 +4,27 @@
   "main": "src/index.js",
   "author": "Przemyslaw Sowinski",
   "license": "MIT",
+  "scripts": {
+    "dev": "mochapack --watch --webpack-config webpack.config.js \"src/**/*.test.js\"",
+    "test": "mochapack --webpack-config webpack.config.js \"src/**/*.test.js\"",
+    "build:dev": "webpack --config webpack.config.js",
+    "build:watch": "webpack -w --config webpack.config.js --env.nodemon=true",
+    "build:prod": "webpack -p --config webpack.config.js"
+  },
   "dependencies": {
     "immutable": "^4.0.0-rc.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-loader": "^8.0.5",
+    "chai": "^4.2.0",
+    "clean-webpack-plugin": "^2.0.1",
+    "mocha": "^6.0.2",
+    "mochapack": "^1.1.0",
+    "nodemon-webpack-plugin": "^4.0.8",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-node-externals": "^1.7.2"
   }
 }
