@@ -1,9 +1,13 @@
 {
   "name": "riasfp",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "dist/bundle.js",
   "author": "Przemyslaw Sowinski",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psowinski/riasfp.git"
+  },
   "scripts": {
     "dev": "mochapack --watch --webpack-config webpack.config.js \"src/**/*.test.js\"",
     "test": "mochapack --webpack-config webpack.config.js \"src/**/*.test.js\"",

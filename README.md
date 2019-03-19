@@ -1,6 +1,6 @@
 ### Functional programming library integrated with immutable.js
 
-Provides Result and Option monads and unit const
+Provides Result and Option monads and unit const based on record type
 
 ### Result:
 
@@ -35,6 +35,10 @@ none; //None
 some(1); //Some(1)\
 some(undefined); //Error exception\
 some(null); //Error exception
+
+option(1); //Some(1)\
+option(undefined); //none\
+option(null); //none
 
 methods:\
 .map(function(okValue) {...})\

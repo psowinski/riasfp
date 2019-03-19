@@ -16,7 +16,7 @@ console.log(
 function getPlugins(env) {
   var plugins = [new cleanPlugin()];
   if (env && env.nodemon) {
-    console.log('Running node deamon...');
+    console.log('Running node demon...');
     plugins.push(
       new nodemonPlugin({
         watch: resolve('./dist')
