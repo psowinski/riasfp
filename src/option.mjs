@@ -3,8 +3,6 @@ import { Record } from 'immutable';
 const OPTION = 'Option';
 const Option = new Record({ value: undefined }, OPTION);
 
-const isOptionRecord = x => OPTION !== Record.getDescriptiveName(x);
-
 Option.prototype.isSome = function() {
   return this.value != null;
 };
@@ -15,24 +13,14 @@ Option.prototype.isNone = function() {
 
 Option.prototype.bind = function(f) {
   if (this.isSome()) {
-    const result = f(this.value);
-    if (isOptionRecord(result)) {
-      throw new Error('Option.bind should get option record as f return value');
-    }
-    return result;
+    return f(this.value);
   }
   return this;
 };
 
 Option.prototype.map = function(f) {
   if (this.isSome()) {
-    const result = f(this.value);
-    if (!isOptionRecord(result)) {
-      throw new Error(
-        'Option.map should not get option record as f return value'
-      );
-    }
-    return some(result);
+    return some(f(this.value));
   }
   return this;
 };

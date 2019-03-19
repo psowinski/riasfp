@@ -28,20 +28,12 @@ describe('Result tests', function() {
     expect(error(2).bind(() => error(4)).error).to.be.equal(2);
   });
 
-  it('bind should require another result as return value', function() {
-    expect(() => ok('abc').bind(() => 'xyz')).to.throw();
-  });
-
   it('should bind error value', function() {
     expect(error('ab').bindError(x => error(x + 'c')).error).to.be.equal('abc');
   });
 
   it('should pass ok on error bind', function() {
     expect(ok('a').bindError(() => ok('b')).ok).to.be.equal('a');
-  });
-
-  it('bind error should require another result as return value', function() {
-    expect(() => error('abc').bindError(() => 'xyz')).to.throw();
   });
 
   it('should map ok value', function() {
@@ -52,20 +44,12 @@ describe('Result tests', function() {
     expect(error(2).map(() => error(4)).error).to.be.equal(2);
   });
 
-  it('map should require unboxed return value', function() {
-    expect(() => ok('abc').map(() => ok('xyz'))).to.throw();
-  });
-
   it('should map error value', function() {
     expect(error(1).mapError(x => x + 1).error).to.be.equal(2);
   });
 
   it('should pass ok on error map', function() {
     expect(ok(1).mapError(() => ok(4)).ok).to.be.equal(1);
-  });
-
-  it('map error should require unboxed return value', function() {
-    expect(() => error('abc').mapError(() => error('xyz'))).to.throw();
   });
 
   it('match should work with ok value', function() {
